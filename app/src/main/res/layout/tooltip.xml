@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tooltip_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/tooltip_shadow_padding"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- Missing constraints are added programmatically -->
+        <!-- Elevation doesn't draw a shadow on the connector.
+             See comments in tooltip_connector.xml for more detail. -->
+        <View
+            android:id="@+id/tooltip_connector"
+            android:layout_width="12dp"
+            android:layout_height="0dp"
+            android:background="@drawable/tooltip_connector"
+            app:layout_constraintDimensionRatio="H,2:1"
+            android:elevation="@dimen/tooltip_elevation"
+            tools:ignore="MissingConstraints" />
+
+        <!-- Missing vertical constraint is added programmatically -->
+        <FrameLayout
+            android:id="@+id/tooltip_bubble"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tooltip_background"
+            android:elevation="@dimen/tooltip_elevation"
+            app:layout_constraintWidth_max="wrap"
+            app:layout_constraintWidth_percent="0.65"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:ignore="MissingConstraints">
+            <TextView
+                android:id="@+id/tooltip_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/tooltip_vertical_spacing"
+                android:layout_marginBottom="@dimen/tooltip_vertical_spacing"
+                android:layout_marginStart="@dimen/tooltip_horizontal_spacing"
+                android:layout_marginEnd="@dimen/tooltip_horizontal_spacing"
+                android:textAppearance="?tooltip_test"
+                tools:text="Tooltip message would go here." />
+        </FrameLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
+
