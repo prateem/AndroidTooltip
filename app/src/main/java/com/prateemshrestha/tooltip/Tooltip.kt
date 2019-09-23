@@ -1,11 +1,13 @@
 package com.prateemshrestha.tooltip
 
 import android.graphics.Point
+import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.FrameLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -98,15 +100,20 @@ class Tooltip(
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
 
+            val flagTranslucentStatus = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+            val hasTranslucentStatusBar =
+                window.attributes.flags and flagTranslucentStatus == flagTranslucentStatus
             val topInset =
-                if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
-                    window.decorView.rootWindowInsets.systemWindowInsetTop
-                } else {
-                    val resId = resources.getIdentifier("status_bar_height", "dimen", "android")
-                    if (resId != 0)
-                        resources.getDimensionPixelSize(resId)
-                    else 0
-                }
+                if (hasTranslucentStatusBar) 0
+                else
+                    if (Build.VERSION.SDK_INT == Build.VERSION_CODES.M) {
+                        window.decorView.rootWindowInsets.systemWindowInsetTop
+                    } else {
+                        val resId = resources.getIdentifier("status_bar_height", "dimen", "android")
+                        if (resId != 0)
+                            resources.getDimensionPixelSize(resId)
+                        else 0
+                    }
             val shadowPadding = resources.getDimensionPixelOffset(R.dimen.tooltip_shadow_padding)
 
             // We need measured widths and heights. So, everything below must be done in a runnable
