@@ -179,7 +179,6 @@ class Tooltip(
                 val viewAnchorMiddle = anchorPosition.x + (anchor.width / 2)
                 val connectorSpacing = resources
                     .getDimensionPixelOffset(R.dimen.tooltip_connector_spacing)
-                val minimumEdgeSpacing = resources.getDimensionPixelOffset(R.dimen.tooltip_minimum_edge_spacing)
 
                 val halfScreenWidth = screenWidth / 2
                 val connectorWidth = tooltipConnector.width
@@ -216,7 +215,7 @@ class Tooltip(
                             var bubbleLeft = connectorLeft - connectorSpacing
                             if (bubbleLeft < 0) {
                                 // Tooltip needs to be placed at left screen edge.
-                                bubbleLeft = minimumEdgeSpacing
+                                bubbleLeft = 0
                                 connectorLeft = bubbleLeft + connectorSpacing
                             } else {
                                 // Try to keep the connector relatively centered with the bubble.
@@ -251,7 +250,7 @@ class Tooltip(
                             var bubbleRight = connectorRightEdge + connectorSpacing
                             if (bubbleRight > screenWidth) {
                                 // Tooltip needs to be placed at right screen edge.
-                                bubbleRight = screenWidth - minimumEdgeSpacing
+                                bubbleRight = screenWidth
                                 connectorRightEdge = bubbleRight - connectorSpacing
                             } else {
                                 // Try to keep the connector relatively centered with the bubble.

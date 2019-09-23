@@ -4,6 +4,5 @@
     <dimen name="tooltip_horizontal_spacing">12dp</dimen>
     <dimen name="tooltip_connector_spacing">16dp</dimen>
     <dimen name="tooltip_elevation">6dp</dimen>
-    <dimen name="tooltip_minimum_edge_spacing">8dp</dimen>
     <dimen name="tooltip_shadow_padding">8dp</dimen>
 </resources>
