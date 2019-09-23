@@ -1,7 +1,6 @@
 package com.prateemshrestha.tooltip
 
 import android.graphics.Point
-import android.graphics.Rect
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
