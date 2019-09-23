@@ -207,7 +207,7 @@ class Tooltip(
                         var connectorLeft: Int
                         if (viewAnchorMiddle >= (tooltipBubble.left + connectorSpacing)) {
                             // This is easy. No need to shift tooltip bubble. Just position the connector.
-                            connectorLeft = viewAnchorMiddle - (connectorWidth / 2)
+                            connectorLeft = viewAnchorMiddle - (connectorWidth / 2) - shadowPadding
                         } else {
                             // View anchor is somewhere on the outside of the bubble bounds.
                             // Do what we can to keep everything decently centered.
@@ -242,7 +242,8 @@ class Tooltip(
                         val connectorEndMargin: Int
                         if (viewAnchorMiddle <= (tooltipBubble.right - connectorSpacing)) {
                             // This is easy. No need to shift tooltip bubble. Just position the connector.
-                            connectorEndMargin = screenWidth - viewAnchorMiddle - (connectorWidth / 2)
+                            connectorEndMargin = screenWidth - viewAnchorMiddle -
+                                    (connectorWidth / 2) - shadowPadding
                         } else {
                             // View anchor is somewhere on the outside of the bubble bounds.
                             // Do what we can to keep everything decently centered.
