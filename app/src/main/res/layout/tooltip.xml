@@ -46,7 +46,7 @@
                 android:layout_marginBottom="@dimen/tooltip_vertical_spacing"
                 android:layout_marginStart="@dimen/tooltip_horizontal_spacing"
                 android:layout_marginEnd="@dimen/tooltip_horizontal_spacing"
-                android:textAppearance="?tooltip_test"
+                android:textAppearance="?tooltip_text_style"
                 tools:text="Tooltip message would go here." />
         </FrameLayout>
 

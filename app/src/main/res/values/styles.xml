@@ -22,19 +22,17 @@
         <item name="android:windowAnimationStyle">@android:style/Animation</item>
 
         <item name="tooltip_surface_color">?attr/colorSurface</item>
-        <item name="tooltip_text_color">?attr/colorOnSurface</item>
-        <item name="tooltip_test">@style/test</item>
+        <item name="tooltip_text_style">@style/TooltipTextStyle</item>
     </style>
 
-    <style name="test">
+    <style name="TooltipTextStyle">
         <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@android:color/holo_orange_light</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
     </style>
 
     <declare-styleable name="Tooltip">
         <attr name="tooltip_surface_color" format="color|reference" />
-        <attr name="tooltip_text_color" format="color|reference" />
-        <attr name="tooltip_test" format="reference" />
+        <attr name="tooltip_text_style" format="reference" />
     </declare-styleable>
 
 </resources>
