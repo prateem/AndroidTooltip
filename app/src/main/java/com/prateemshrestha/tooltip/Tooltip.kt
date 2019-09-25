@@ -284,4 +284,9 @@ class Tooltip(
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        dismiss()
+    }
+
 }
